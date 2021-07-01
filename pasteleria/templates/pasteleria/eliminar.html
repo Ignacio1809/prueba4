@@ -1,0 +1,10 @@
+<h1>Eliminar clientes</h1>
+<form action="{% url 'pasteleria:borrar' %}" method="post">
+    {% csrf_token %}
+    <h4>Busque el rut del cliente que desea eliminar</h4>
+    <input type="text" name="eliminar" required>
+    <br>
+    <br>
+    <br>
+    <input type="submit" value="Eliminar">
+</form>

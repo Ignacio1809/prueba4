@@ -1,0 +1,10 @@
+<h1>Buscar clientes</h1>
+<h4>Ingrese el rut del cliente que desea buscar</h4>
+<form action="{% url 'pasteleria:mostrar' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="rut" required>
+    <br>
+    <br>
+    <br>
+    <input type="submit" value="Buscar">
+</form>

@@ -1,0 +1,28 @@
+<h1>Agregar clientes</h1>
+<form action="{% url 'pasteleria:registrar' %}" method="post">
+    {% csrf_token %}
+    <h4>Rut</h4>
+    <input type="text" name="rut" placeholder="20685896-8" required>
+    <h4>Nombre</h4>
+    <input type="text" name="nombre" placeholder="Juan" required>
+    <h4>Apellido</h4>
+    <input type="text" name = "apellido" placeholder="Perez" required>
+    <h4>Fecha de nacimiento</h4>
+    <input type="date" name="fecha">
+    <h4>Direccion</h4>
+    <input type="text" name="direccion" placeholder="Los arboles #658" required>
+    <h4>Comuna</h4>
+    <select name="comuna" required>
+        <option value="">Seleccionar</option>
+        <option>Talagante</option>
+        <option>Isla de maipo</option>
+        <option>Padre hurtado</option>
+        <option>Peñaflor</option>
+    </select>
+    <h4>Email</h4>
+    <input type="email" name="correo" placeholder="juanperez@gmail.com" required>
+    <br>
+    <br>
+    <br>
+    <input type="submit" value="Agregar">
+</form>

@@ -1,0 +1,16 @@
+{% if listado %}
+<ul>
+    {% for i in listado %}
+    <li><a href="{{i.id}}">{{i.id}}</a></li>
+    <li>Rut: {{i.rut}}</li>
+    <li>Nombre: {{i.nombre}}</li>
+    <li>Apellido: {{i.apellido}}</li>
+    <li>Fecha de nacimiento: {{i.fecha_nacimiento}}</li>
+    <li>Direccion: {{i.direccion}}</li>
+    <li>Comuna: {{i.comuna}}</li>
+    <li>Email: {{i.email}}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>Sin informacion</p>
+{% endif %}
