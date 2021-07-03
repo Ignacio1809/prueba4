@@ -1,0 +1,17 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<script src="{% static 'js/funciones.js' %}"></script>
+<h1>Actualizar productos</h1>
+<h4>Seleccione el nombre del producto que desea editar</h4>
+{% for i in actualizar%}
+<form action="{% url 'pasteleria:editar_producto' %}" method="post">
+    {% csrf_token %}
+    <ul>
+        <input type="hidden" name="nombre_producto" value="{{i.nombre_producto}}">
+        <input type="hidden" name="precio" value="{{i.precio}}">
+        <input type="hidden" name="descripcion" value="{{i.descripcion}}">
+        <li>nombre producto: {{i.nombre_producto}}</li><span><input type="submit" value="Editar"></span>
+    </ul>
+</form>
+{% endfor %}
