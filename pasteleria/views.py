@@ -71,7 +71,7 @@ def eliminar_producto(request):
     return render(request, "pasteleria/eliminar_producto.html")
 
 def eliminar(request):
-    borrar = Cliente.objects.all(rut=request.POST["eliminar"])
+    borrar = Cliente.objects.get(rut=request.POST["eliminar"])
     borrar.delete()
     return HttpResponse("Cliente eliminado")
 
@@ -162,3 +162,6 @@ def finalizar_pedido_dos(request):
 
 def finalizar_pedido_tres(request):
     return render(request, "pasteleria/finalizar_pedido_tres.html")
+
+def registrarse(request):
+    return render(request, "pasteleria/registrarse.html")
