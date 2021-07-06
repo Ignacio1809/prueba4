@@ -15,8 +15,8 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 
 class ClienteSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-    
-        fields = ['url', 'rut', 'nombre']
+        model = Cliente
+        fields = ['url', 'rut', 'nombre', 'apellido','fecha_nacimiento']
 
 class ProductoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
