@@ -16,7 +16,7 @@
             <div class="collapse navbar-collapse" id="navbarsExample07">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{% url 'pasteleria:inicio' %}">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Acerca de la pasteleria</a>
@@ -28,7 +28,10 @@
                         <a class="nav-link" href="#">Contactenos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="formulario4.html">Iniciar sesion</a>
+                        <a class="nav-link" href="{% url 'pasteleria:frm_iniciar_sesion' %}">Iniciar sesion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://localhost:8000/api/">Utilizar Api</a>
                     </li>
                 </ul>
             </div>
@@ -45,7 +48,7 @@
     </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img class=img_carrusel src="{% static 'img/pastel1.jpg' %}" class="d-block w-100" alt="...">
+            <img class=img_carrusel src="{% static 'img/pastel.jpg' %}" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
                 <h5>Tortas</h5>
                 <p>Podrás encontrar una amplia variedad de tortas.</p>
@@ -76,6 +79,64 @@
     </a>
 </div>
 
+<div class="album py-5 bg-light">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img src="{% static 'img/pastel2.jpg' %}">
+
+                    <div class="card-body">
+                        <h3>Torta de chocolate</h3>
+                        <p class="card-text">Bizcocho de 3 capas con cobertura de crema de chocolate
+                            y su relleno esta compuesto por cacao y chocolate .</p>
+                        <h5> $10.000</h5>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a href="{% url 'pasteleria:producto_uno' %}" class="btn btn-primary">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img src="{% static 'img/queque3.jpg' %}">
+
+                    <div class="card-body">
+                        <h3>Queque de zanahoria</h3>
+                        <p class="card-text">Rico queque hecho con los mejores ingredientes mas frescos,
+                            contiene pequeños trozos de zanahorias y nueces.</p>
+                        <h5>Precio $8.000</h5>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a href="{% url 'pasteleria:producto_dos' %}" class="btn btn-primary">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img src="{% static 'img/brazo_r2.jpg' %}">
+
+                    <div class="card-body">
+                        <h3>Brazo de reina</h3>
+                        <p class="card-text">Brazo de reina hecha con una capa de bizcocho,
+                            relleno con un suavisante manjar y azucar flor.</p>
+                        <h5>Precio $15.000</h5>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a href="{% url 'pasteleria:producto_tres' %}" class="btn btn-primary">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <br>
 <br>
@@ -125,8 +186,8 @@
                     class="fab fa-instagram"></i><img src="{% static 'img/instagram.png' %}" style="width: 30px"></a>
 
             <!-- Google -->
-            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
-                    class="fab fa-twitter"></i><img src="{% static 'img/twitter.png' %}" style="width: 30px"></a>
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-twitter"></i><img
+                    src="{% static 'img/twitter.png' %}" style="width: 30px"></a>
         </section>
         <!-- Section: Social media -->
     </div>
