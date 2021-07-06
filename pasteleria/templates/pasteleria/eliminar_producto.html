@@ -1,9 +1,8 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-<script src="{% static 'js/funciones.js' %}"></script>
-<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+
 
 <div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -18,7 +17,7 @@
             <div class="collapse navbar-collapse" id="navbarsExample07">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{% url 'pasteleria:inicio' %}">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Acerca de la pasteleria</a>
@@ -37,15 +36,88 @@
         </div>
     </nav>
 </div>
+<div style="text-align: center">
+    <h1>Eliminar producto</h1>
+</div>
+<br>
+<form action="{% url 'pasteleria:borrar_producto' %}" id="eliminar_producto" method="post" class="container-sm">
+    {% csrf_token %}
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label>Busque el nombre del producto que desea eliminar</label>
+            <input type="text" id="borrar_pro" name="borrar_pro" class="form-control">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Eliminar</button>
+</form>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 
-<h1>Eliminar Producto</h1>
-<form action="{% url 'pasteleria:borrar_producto' %}" method="POST">
-    {% csrf_token %}
-    <h4>Busque el nombre del producto que desea eliminar</h4>
-    <input type="text" name="borrar_pro" required placeholder="Sal">
-    <br>
-    <br>
-    <br>
-    <input type="submit" value="Eliminar">
-</form>
+
+
+<footer class="bg-dark text-center text-white">
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+            <!-- Facebook -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                    class="fab fa-facebook-f"></i><img src="{% static 'img/facebook.png' %}" style="width: 30px"></a>
+
+            <!-- Twitter -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                    class="fab fa-instagram"></i><img src="{% static 'img/instagram.png' %}" style="width: 30px"></a>
+
+            <!-- Google -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-twitter"></i><img
+                    src="{% static 'img/twitter.png' %}" style="width: 30px"></a>
+        </section>
+        <!-- Section: Social media -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © Pasteleria Cake House. Todos los derechos reservados 2021
+    </div>
+    <!-- Copyright -->
+</footer>
+<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#eliminar_producto").click(function () {
+            var nombre = $("#borrar_pro").val();
+
+            if (nombre.trim() == "") {
+                document.getElementById("borrar_pro").style.borderColor = "red";
+                return false;
+            }
+            else {
+                document.getElementById("borrar_pro").style.borderColor = "green";
+
+            }
+        });
+    });
+</script>
