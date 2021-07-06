@@ -1,7 +1,8 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-<script src="{% static 'js/funciones.js' %}"></script>
+
+
 
 <div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -28,34 +29,58 @@
                         <a class="nav-link" href="#">Contactenos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'pasteleria:frm_iniciar_sesion' %}">Iniciar sesion</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="http://localhost:8000/api/">Utilizar Api</a>
+                        <a class="nav-link" href="#">Iniciar sesion</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 </div>
-
-<h1>Actualizar clientes</h1>
-<h4>Seleccione el rut que desea editar</h4>
+<div style="text-align: center">
+    <h1>Actualizar clientes</h1>
+    <h4>Seleccione el rut que desea editar</h4>
+</div>
+<br>
 {% for i in actualizar %}
-<form action="{% url 'pasteleria:editar' %}" method="post">
+<form action="{% url 'pasteleria:editar' %}" method="post" class="container-sm">
     {% csrf_token %}
-    <ul>
-        <input type="hidden" name="rut" value="{{i.rut}}">
-        <input type="hidden" name="nombre" value="{{i.nombre}}">
-        <input type="hidden" name="apellido" value="{{i.apellido}}">
-        <input type="hidden" name="fecha" value="{{i.fecha_nacimiento}}">
-        <input type="hidden" name="direccion" value="{{i.direccion}}">
-        <input type="hidden" name="comuna" value="{{i.comuna}}">
-        <input type="hidden" name="correo" value="{{i.email}}">
-        <li>Rut: {{i.rut}}</li><span><input type="submit" value="Editar"></span>
-    </ul>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <ul>
+                <input type="hidden" name="id" value="{{i.id}}">
+                <input type="hidden" name="rut" value="{{i.rut}}">
+                <input type="hidden" name="nombre" value="{{i.nombre}}">
+                <input type="hidden" name="apellido" value="{{i.apellido}}">
+                <input type="hidden" name="fecha" value="{{i.fecha}}">
+                <input type="hidden" name="direccion" value="{{i.direccion}}">
+                <input type="hidden" name="comuna" value="{{i.comuna}}">
+                <input type="hidden" name="correo" value="{{i.email}}">
+                <li>Rut: {{i.rut}}</li>
+                <button type="submit" class="btn btn-primary">Editar</button>
+            </ul>
+        </div>
+    </div>
 </form>
 {% endfor %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
 
 <footer class="bg-dark text-center text-white">
     <!-- Grid container -->
@@ -71,8 +96,8 @@
                     class="fab fa-instagram"></i><img src="{% static 'img/instagram.png' %}" style="width: 30px"></a>
 
             <!-- Google -->
-            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
-                    class="fab fa-twitter"></i><img src="{% static 'img/twitter.png' %}" style="width: 30px"></a>
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-twitter"></i><img
+                    src="{% static 'img/twitter.png' %}" style="width: 30px"></a>
         </section>
         <!-- Section: Social media -->
     </div>
@@ -84,10 +109,5 @@
     </div>
     <!-- Copyright -->
 </footer>
-
-
-<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
-
 <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
