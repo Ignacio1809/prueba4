@@ -45,7 +45,7 @@
 <br>
 <br>
 
-<form action="{% url 'pasteleria:iniciar_sesion' %}" method="POST">
+<form action="{% url 'pasteleria:iniciar_sesion' %}" id="formulario" method="POST">
     {% csrf_token %}
     <div class="form-group">
         <label for="exampleInputEmail1">Usuario</label>
@@ -101,6 +101,32 @@
 <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 
-<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script>
+    $(document).ready(function () {
+        $("#formulario").click(function () {
+            var nombre = $("#exampleInputEmail1").val();
+            var password_1 = $("#exampleInputPassword1").val();
 
+            if (nombre.trim() == "") {
+                document.getElementById("exampleInputEmail1").style.borderColor = "red";
+                return false;
+            }
+            else {
+                document.getElementById("exampleInputEmail1").style.borderColor = "green";
+
+            }
+
+            if (password_1.trim() == "") {
+                document.getElementById("exampleInputPassword1").style.borderColor = "red";
+
+                return false;
+            }
+            else {
+                document.getElementById("exampleInputPassword1").style.borderColor = "green";
+
+
+            }
+        });
+    });
+
+</script>
