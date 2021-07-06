@@ -29,4 +29,5 @@ urlpatterns = [
     path("finalizar_pedido_uno", views.finalizar_pedido_uno, name="finalizar_pedido_uno"),
     path("finalizar_pedido_dos", views.finalizar_pedido_dos, name="finalizar_pedido_dos"),
     path("finalizar_pedido_tres", views.finalizar_pedido_tres, name="finalizar_pedido_tres"),
+    
 ]

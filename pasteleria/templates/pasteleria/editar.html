@@ -17,7 +17,7 @@
             <div class="collapse navbar-collapse" id="navbarsExample07">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{% url 'pasteleria:inicio' %}">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Acerca de la pasteleria</a>
@@ -40,32 +40,32 @@
     <h1>Editar clientes</h1>
 </div>
 <br>
-<form action="" method="post" class="container-sm">
+<form action="" method="post" id="editar" class="container-sm">
     {% csrf_token %}
     <div class="form-row">
         <div class="form-group col-md-6">
             <label>Rut</label>
-            <input type="text" name="rut" value="{{mostrar.rut}}" class="form-control">
+            <input type="text" id="rut" name="rut" value="{{mostrar.rut}}" class="form-control" required>
         </div>
         <div class="form-group col-md-6">
             <label>Nombre</label>
-            <input type="text" name="nombre" value="{{mostrar.nombre}}" class="form-control">
+            <input type="text" id="nombre" name="nombre" value="{{mostrar.nombre}}" class="form-control">
         </div>
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
             <label>Apellido</label>
-            <input type="text" name="apellido" value="{{mostrar.apellido}}" class="form-control">
+            <input type="text" id="apellido" name="apellido" value="{{mostrar.apellido}}" class="form-control">
         </div>
         <div class="form-group col-md-6">
             <label>Fecha de nacimiento</label>
-            <input type="date" name="fecha" value="{{mostrar.fecha_nacimiento}}" class="form-control">
+            <input type="date" id="fecha" name="fecha" value="{{mostrar.fecha}}" class="form-control">
         </div>
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
             <label>Direccion</label>
-            <input type="text" name="direccion" value="{{mostrar.direccion}}" class="form-control">
+            <input type="text" id="direccion" name="direccion" value="{{mostrar.direccion}}" class="form-control">
         </div>
         <div class="form-group col-md-6">
             <label>Direccion 2 (opcional)</label>
@@ -75,7 +75,7 @@
     <div class="form-row">
         <div class="form-group col-md-6">
             <label>Comuna</label>
-            <select name="comuna" value="{{mostrar.comuna}}" class="form-control">
+            <select id="comuna" name="comuna" value="{{mostrar.comuna}}" class="form-control">
                 <option value="">Seleccionar</option>
                 <option>Talagante</option>
                 <option>Isla de maipo</option>
@@ -85,10 +85,10 @@
         </div>
         <div class="form-group col-md-6">
             <label>Email</label>
-            <input type="email" name="correo" value="{{mostrar.email}}" class="form-control">
+            <input id="email" type="email" name="correo" value="{{mostrar.email}}" class="form-control">
         </div>
     </div>
-    <button type="submit" class="btn btn-primary">Editar</button>
+    <button onclick="validacion4()" type="submit" class="btn btn-primary">Editar</button>
 </form>
 <br>
 <br>
@@ -131,5 +131,76 @@
     </div>
     <!-- Copyright -->
 </footer>
+
 <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+<script>
+    function validacion4() {
+        var rut = document.getElementById("rut").value;
+        var nombre = document.getElementById("nombre").value;
+        var apellido = document.getElementById("apellido").value;
+        var fecha = document.getElementById("fecha").value;
+        var direccion = document.getElementById("direccion").value;
+        var comuna = document.getElementById("comuna").value;
+        var correo = document.getElementById("email").value;
+
+        if (rut.trim() == "") {
+            document.getElementById("rut").style.borderColor = "#ff0000";
+        }
+        else if (rut == 0) {
+            document.getElementById("rut").style.borderColor = "#ff0000";
+        }
+        else {
+            document.getElementById("rut").style.borderColor = "#008000";
+        };
+        if (nombre.trim() == "") {
+            document.getElementById("nombre").style.borderColor = "#ff0000";
+        }
+        else if (nombre == 0) {
+            document.getElementById("nombre").style.borderColor = "#ff0000";
+        }
+        else {
+            document.getElementById("nombre").style.borderColor = "#008000";
+        };
+        if (apellido.trim() == "") {
+            document.getElementById("apellido").style.borderColor = "#ff0000";
+        }
+        else if (apellido == 0) {
+            document.getElementById("apellido").style.borderColor = "#ff0000";
+        }
+        else {
+            document.getElementById("apellido").style.borderColor = "#008000";
+        };
+        if (fecha == 0) {
+            document.getElementById("fecha").style.borderColor = "#ff0000";
+        }
+        else {
+            document.getElementById("fecha").style.borderColor = "#008000";
+        };
+        if (direccion.trim() == "") {
+            document.getElementById("direccion").style.borderColor = "#ff0000";
+        }
+        else if (direccion == 0) {
+            document.getElementById("direccion").style.borderColor = "#ff0000";
+        }
+        else {
+            document.getElementById("direccion").style.borderColor = "#008000";
+        };
+        if (comuna == 0) {
+            document.getElementById("comuna").style.borderColor = "#ff0000";
+        }
+        else {
+            document.getElementById("comuna").style.borderColor = "#008000";
+        };
+        if (correo.trim() == "") {
+            document.getElementById("email").style.borderColor = "#ff0000";
+        }
+        else if (correo == 0) {
+            document.getElementById("email").style.borderColor = "#ff0000";
+        }
+        else {
+            document.getElementById("email").style.borderColor = "#008000";
+        };
+    };
+</script>
